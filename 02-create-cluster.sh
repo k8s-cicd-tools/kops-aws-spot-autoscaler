@@ -2,7 +2,9 @@
 #https://aws.amazon.com/es/getting-started/hands-on/run-kops-kubernetes-clusters-for-less-with-amazon-ec2-spot-instances/
 
 source 00-envs.sh
-
+echo "Kubernetes version: ${KUBECTL_VERSION}"
+echo "Kubectl version: ${KUBECTL_VERSION}"
+echo "Kops version: ${KOPS_VERSION}"
 echo "Creating cluster ${NAME}"
 kops create cluster \
 --name ${NAME} \
@@ -15,12 +17,7 @@ kops create cluster \
 --node-size t3.medium \
 --node-count 2 \
 --dns private \
---kubernetes-version v1.21.1
-# --kubernetes-version v1.12.4
-
-#cpu x memory
-#t3.small 2x2
-#t3.medium 2x4
+--kubernetes-version ${KUBECTL_VERSION}
 
 #Suggestions:
 # * list clusters with: kops get cluster

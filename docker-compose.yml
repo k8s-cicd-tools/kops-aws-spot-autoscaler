@@ -1,0 +1,13 @@
+version: '3.1'
+
+services:
+
+  aws-kops:
+    container_name: aws-kops
+    image: aws-kops:latest
+    restart: always
+    volumes:
+      - ~/.aws:/root/.aws
+      - ~/.kube:/root/.kube
+      - ~/.ssh:/root/.ssh
+      - ./:/root/kops-aws-spot-autoscaler

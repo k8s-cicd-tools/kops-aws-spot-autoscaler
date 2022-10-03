@@ -12,7 +12,7 @@ spec:
     enableSQSTerminationDraining: true
     managedASGTag: "aws-node-termination-handler/managed"
 EOF
-#yq merge -a append --overwrite --inplace ~/environment/cluster_config.yaml ~/environment/node_termination_handler_addon.yaml
+
 yq eval-all --inplace '. as $item ireduce ({}; . * $item )' ~/environment/cluster_config.yaml  ./node_termination_handler_addon.yaml
 aws s3 cp ~/environment/cluster_config.yaml ${KOPS_STATE_STORE}/${NAME}/config
 kops update cluster --state=${KOPS_STATE_STORE} --name=${NAME} --yes --admin

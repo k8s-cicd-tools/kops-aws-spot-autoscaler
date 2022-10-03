@@ -3,8 +3,7 @@
 export NAME=myfirstcluster.k8s.local
 
 #kop state prefix
-#export KOPS_STATE_PREFIX=ghfrg45d325r-kops-state
-export KOPS_STATE_STORE=gr34weergds-kops-state
+export KOPS_STATE_PREFIX=ghfrg45d325r-kops-state
 
 #kops state store
 export KOPS_STATE_STORE=s3://${KOPS_STATE_PREFIX}
